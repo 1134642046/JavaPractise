@@ -1,6 +1,6 @@
 //: typeinfo/toys/ToyTest.java
 // Testing class Class.
-package typeinfo.toys;
+package chapter14.pr1_2;
 import static net.mindview.util.Print.print;
 
 interface HasBatteries {}
@@ -9,15 +9,17 @@ interface Waterproof {}
 
 interface Shoots {}
 
+interface Car {}
+
 class Toy {
   // Comment out the following default constructor
   // to see NoSuchMethodError from (*1*)
-  Toy() {}
+  //Toy() {}
   Toy(int i) {}
 }
 
 class FancyToy extends Toy
-implements HasBatteries, Waterproof, Shoots {
+implements HasBatteries, Waterproof, Shoots, Car{
   FancyToy() { super(1); }
 }
 
@@ -31,7 +33,7 @@ public class ToyTest {
   public static void main(String[] args) {
     Class c = null;
     try {
-      c = Class.forName("typeinfo.toys.FancyToy");
+      c = Class.forName("chapter14.pr1_2.FancyToy");
     } catch(ClassNotFoundException e) {
       print("Can't find FancyToy");
       System.exit(1);
