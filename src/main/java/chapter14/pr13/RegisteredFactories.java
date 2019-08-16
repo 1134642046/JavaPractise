@@ -1,5 +1,5 @@
 //: typeinfo/RegisteredFactories.java
-package typeinfo; /* Added by Eclipse.py */
+package chapter14.pr13; /* Added by Eclipse.py */
 // Registering Class Factories in the base class.
 
 import typeinfo.factory.Factory;
@@ -94,6 +94,7 @@ class PowerSteeringBelt extends Belt {
 
 public class RegisteredFactories {
   public static void main(String[] args) {
+
     for(int i = 0; i < 10; i++)
       System.out.println(Part.createRandom());
   }
