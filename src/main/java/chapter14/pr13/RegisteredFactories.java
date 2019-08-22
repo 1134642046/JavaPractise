@@ -2,11 +2,14 @@
 package chapter14.pr13; /* Added by Eclipse.py */
 // Registering Class Factories in the base class.
 
+import net.mindview.util.TypeCounter;
 import typeinfo.factory.Factory;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static net.mindview.util.Print.print;
 
 class Part {
   public String toString() {
@@ -94,9 +97,14 @@ class PowerSteeringBelt extends Belt {
 
 public class RegisteredFactories {
   public static void main(String[] args) {
-
-    for(int i = 0; i < 10; i++)
-      System.out.println(Part.createRandom());
+    TypeCounter counter = new TypeCounter(Part.class);
+    for(int i = 0; i < 10; i++){
+      Part p = Part.createRandom();
+      System.out.print(p.getClass().getSimpleName()+",");
+      counter.count(p);
+    }
+    print();
+    print(counter);
   }
 } /* Output:
 GeneratorBelt
