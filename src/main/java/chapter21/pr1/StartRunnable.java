@@ -6,10 +6,8 @@ import java.util.concurrent.Executors;
 public class StartRunnable {
 
     public static void main(String[] args) {
-        ExecutorService exec = Executors.newSingleThreadExecutor();
-        for(int i = 0; i < 10; i++){
-            exec.execute(new RunnableTest());
-        }
+        ExecutorService exec = Executors.newCachedThreadPool();
+        exec.execute(new RunnableTest());
         exec.shutdown();
     }
 }
